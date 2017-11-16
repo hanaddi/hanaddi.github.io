@@ -20,7 +20,7 @@ window.onload = function(e){
 	},
 	e=>{
 		// e=e.replace(/href=(['"])\/([^/])/g, "href=$1crossdomain.php?url="+URL+"/$2");
-		var url1=URL.split('?')[0];
+		var url1=T.origin.split('?')[0];
 		url1+=(url1[url1.length-1]!='/')?'/':'';
 		e=e.replace(/src=(['"])\/([^/])/g, "src=$1"+(url1.split('?')[0])+"$2");
 		e=e.replace(/href=(['"])\/([^/])/g, "href=$1"+url1.split('?')[0]+"$2");
