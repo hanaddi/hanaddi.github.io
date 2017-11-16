@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FathBlog</title>
+<script src="PFXD.js"></script>
+<script>
+var T={
+	origin:'http://nuraddin.cf'
+};
+window.onload = function(e){
+	PFXD.call(
+	{
+		url:T.origin,
+		httpMethod:'GET',
+		contentType:'text/html',
+		headers:{
+			"User-Agent": "PFXD API caller/0.1"
+		},
+		content:''
+	},
+	e=>{
+		// e=e.replace(/href=(['"])\/([^/])/g, "href=$1crossdomain.php?url="+URL+"/$2");
+		var url1=URL.split('?')[0];
+		url1+=(url1[url1.length-1]!='/')?'/':'';
+		e=e.replace(/src=(['"])\/([^/])/g, "src=$1"+(url1.split('?')[0])+"$2");
+		e=e.replace(/href=(['"])\/([^/])/g, "href=$1"+url1.split('?')[0]+"$2");
+		var div = document.createElement("div");
+		document.body.appendChild(div);
+		div.outerHTML = e;
+
+	});
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>
